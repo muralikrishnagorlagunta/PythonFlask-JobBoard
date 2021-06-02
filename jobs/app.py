@@ -5,6 +5,7 @@ app=Flask(__name__)
 
 PATH='db/jobs.sqlite'
 
+
 @app.route('/')
 @app.route('/jobs')
 def jobs():
