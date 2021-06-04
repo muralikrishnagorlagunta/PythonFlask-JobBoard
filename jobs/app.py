@@ -1,7 +1,7 @@
 import sqlite3
-from typing import List, Any, Union
 
 from flask import Flask, render_template, g
+
 
 app=Flask(__name__)
 
@@ -56,7 +56,7 @@ def job(job_id):
 @app.route('/employer/<employer_id>')
 def employer(employer_id):
     employer = execute_sql('SELECT * from employer '
-                           'WHERE id=?', [employer_id],single=True)
+                           'WHERE id=?', [employer_id], single=True)
     jobs = execute_sql('SELECT job.id, job.title, job.description, job.salary FROM job '
                        'JOIN employer ON employer.id = job.employer_id '
                        'WHERE employer.id = ?', [employer_id])
